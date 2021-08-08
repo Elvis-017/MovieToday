@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .5s;
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+main{
+    margin-top:70px;
+}
+
+.portrait {
+    float: left;
+    padding: 10px;
+}
+
+.card {
+    height: auto;
+    border-radius: 0px;
+}
+.card .card-info{
+    background-color:  black;
+    width:100%;
+    height:100%;
+    position:absolute;
+    border:0;
+    opacity:0;
+}
+
+.rating {
+    background-color: #4a4545;
+    padding: 5px;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+
+
+.card-title,  .categories, .rating {
+    color:white;
+}
+
+ .card-title,  .categories {
+    text-align: center;
+    position: relative;
+    bottom: -30%;
+}
+
+#brandColor{
+    font-family: 'Black Ops One', cursive;
+}
+
+.card .card-info:hover{
+    opacity:0.8;
+}
+
+.card .card-header .card-img-top {
+
+    object-fit: cover;
+    height: 250px;
+}
+
+
+@media only screen and (max-width:1125px) {
+
+    .card .card-header .card-img-top {
+
+        height: auto;
+    }
+    
+}
+
+
+@media only screen and (max-width:550px) {
+    #btn-change-theme{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card .card-header .card-img-top {
+        height: auto;
+    }
+    
+}
+
+
+
+@media only screen and (max-width:450px) {
+
+    .card .card-header .card-img-top {
+
+        height: auto;
+    }
+    
+}
+
+@media only screen and (max-width:990px) {
+    #btn-change-theme{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.card-header {
+    padding: 0;
+}
+
+.card-body h4 {
+    font-size: 15px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+  
+}
+
+.load-btn{
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+git init: inicializa un repositorio
+
+git status muestar los cambios realizados en el repository
+(nothing to commit is display in case you haven't added anything)\
+
+
+git add: to include and file the in commit list  (git add . add everything. Also you can use this: git add -A)
+
+
+git commit : hacer un commit completo
+git commit --amend: permite agregar (uego de un add obviamente) los cambios realizados a el commit actual. Esto hace que no se tenga que anadir un commit mas por diminutivos 
+
+
+git diff verifica los ultimos cambios hechos al archivo
+
+git log muestra todos los commit el atributo -- oneline nos muestra todo en una linea
+
+git reset HEAD "archivo"resetea el cambio en el commit actual que se va a ejecutar
+
+
+git checkout -- "archivo"quita lso cambias del archivo del ultimo commit hecho
+
+
+git reset "id del commit. primero 7 caracteres": elimina un commit
+
+git reset --soft/hard "id": de manera fuerte o suave
+
+
+
+git remote add origin repository's URL -> This add a connection with your repositoy's source.
+
+git push origin master -> this upload the last commit you've made to your repository
