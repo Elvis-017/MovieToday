@@ -133,3 +133,26 @@ a:hover{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+
+.search-container{
+    padding: 7px;
+    padding-bottom: 32px;
+    margin-top: 5px;
+}
+
+.search-container .search-input{
+    width: 85%;
+    border: 0;
+    margin-bottom: 5px;
+}
+
+.search-container .search-input:focus{
+    outline-width: 0;
+    box-shadow: none;
+}
+
+.search-container .btn{
+    padding: 0px;
+    width: calc(15% - 0.375rem);
+}

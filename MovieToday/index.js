@@ -65,8 +65,6 @@ function changeTheme(event) {
       element.classList.add("bg-dark", "text-white")
     }
 
-    NAVBAR.children[2].lastElementChild.lastElementChild.classList.remove("btn-outline-dark")
-    NAVBAR.children[2].lastElementChild.lastElementChild.classList.add("btn-outline-light")
     colorStateValue = 1
   } else {
 
@@ -84,10 +82,6 @@ function changeTheme(event) {
     NAVBAR.classList.remove("navbar-dark", "bg-dark")
 
     MODAL.firstElementChild.firstElementChild.classList.remove("bg-dark", "text-white")
-
-    NAVBAR.children[2].lastElementChild.lastElementChild.classList.remove("btn-outline-light")
-    NAVBAR.children[2].lastElementChild.lastElementChild.classList.add("btn-outline-dark")
-
     colorStateValue = 0
   }
 

@@ -39,10 +39,15 @@
       <button onclick="changeTheme(this)" id="btn-change-theme" class="btn nav-item">
         <i class="fas fa-moon"></i>
       </button>
-      <form id="form" class="form-inline my-2 ml-1 my-lg-0 d-flex justify-content-center">
-        <input id="search-value" id="btn-search" class="form-control mr-sm-2" type="search" placeholder="Search"
+      <form id="form" class="form-inline ml-2 d-flex justify-content-center">
+        <div class="form-control mr-sm-2 search-container">
+          <input id="search-value" id="btn-search" class="search-input" type="text" placeholder="Search"
           aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+
+          <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+        </div>
+      
+       
       </form>
     </div>
   </nav>
@@ -52,7 +57,7 @@
 
     </div>
     <!--load-button-->
-    <button id="load-btn" class="btn btn-secondary load-btn">Load more</button>
+    <button id="load-btn" class="btn btn-secondary load-btn"><i class="fas fa-arrow-down"></i> Load more</button>
     <!--modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
