@@ -224,15 +224,6 @@ function upcomingData(endpoint, pageSize = null) {
         "beforeend",
         `<div class="col col-sm-6 portrait">
           <div class="card ${colorStateValue == 0 ? "bg-light" : "bg-dark"}"  style="padding:0">
-          <button onclick="showMovieDescription(this)"  data-image="${element.poster_path}"
-          data-title="${element.title}"  data-overview="${element.overview}" data-date="${element.release_date}"
-          class="card-info" data-toggle="modal" data-target="#exampleModal" >
-         
-          <span class="rating">  ${element.vote_average} <i class="fas fa-star"></i></span>
-         
-          <p class="card-title">${element.title.length > 20 ? element.title.slice(0,13) + "..." : element.title}</p>
-            <p class="year">   ${element.release_date.slice(0, 4)}</p>
-              </button>
                <div class="card-header">
                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/${
                      element.poster_path
