@@ -1,6 +1,7 @@
 const BASE_URL = "https://api.themoviedb.org/3/",
   API_KEY = "8b870f6ed1c7d58ccfd644358e88439d",
   MOVIE_CONTAINER = document.getElementById("movie-list"),
+  UPCOMING_CONTAINER = document.getElementById("upcoming-movie-list"),
   FORM = document.getElementById("form"),
   SEARCH_VALUE = document.getElementById("search-value"),
   NAVBAR = document.getElementById("navbar"),
@@ -11,7 +12,8 @@ const BASE_URL = "https://api.themoviedb.org/3/",
   loadBtn = document.getElementById("load-btn"),
   MODAL_INFO = document.getElementById("modal-info"),
   MOVIE_IMAGE = document.getElementById("modal-image"),
-  MOVIE_DESCRIPTION = document.getElementById("modal-description");
+  MOVIE_DESCRIPTION = document.getElementById("modal-description"),
+  UP_TEXT = document.getElementById("up-text");
 
 let navlink = document.getElementsByClassName("nav-link"),
   cards = document.getElementsByClassName("card"),
@@ -60,6 +62,11 @@ function changeTheme(event) {
 
     MODAL.firstElementChild.firstElementChild.classList.add("bg-dark", "text-white")
 
+
+    UP_TEXT.classList.add("text-light")
+    UP_TEXT.classList.remove("text-dark")
+
+
     for (let index = 0; index < cards.length; index++) {
       const element = cards[index];
       element.classList.add("bg-dark", "text-white")
@@ -80,6 +87,10 @@ function changeTheme(event) {
 
     NAVBAR.classList.add("navbar-light", "bg-light")
     NAVBAR.classList.remove("navbar-dark", "bg-dark")
+
+    UP_TEXT.classList.remove("text-light")
+    UP_TEXT.classList.add("text-dark")
+
 
     MODAL.firstElementChild.firstElementChild.classList.remove("bg-dark", "text-white")
     colorStateValue = 0
@@ -137,14 +148,14 @@ function chargeContent() {
 
   switch (val) {
     case 1:
-      endpointData("movie/" + dataValue + "/", pageSize);
+      endpointDataLink("movie/" + dataValue + "/", pageSize);
       break;
 
     case 2:
       if (formValue == null || formValue == "" || formValue == undefined)
         alert("no empty value permitted");
       else
-        endpointData("search/movie/", pageSize, formValue);
+        endpointDataLink("search/movie/", pageSize, formValue);
       break;
 
     default:
@@ -202,7 +213,41 @@ function showMovieDescription(e) {
   MOVIE_DESCRIPTION.textContent = overview;
 }
 
-function endpointData(endpoint, pageSize = null, searchParam = null) {
+
+
+function upcomingData(endpoint, pageSize = null) {
+  getMovies(endpoint, pageSize).then((response) => {
+    for (key in response.results) {
+      if (key == 6) break;
+      const element = response.results[key];
+      UPCOMING_CONTAINER.insertAdjacentHTML(
+        "beforeend",
+        `<div class="col col-sm-6 portrait">
+          <div class="card ${colorStateValue == 0 ? "bg-light" : "bg-dark"}"  style="padding:0">
+          <button onclick="showMovieDescription(this)"  data-image="${element.poster_path}"
+          data-title="${element.title}"  data-overview="${element.overview}" data-date="${element.release_date}"
+          class="card-info" data-toggle="modal" data-target="#exampleModal" >
+         
+          <span class="rating">  ${element.vote_average} <i class="fas fa-star"></i></span>
+         
+          <p class="card-title">${element.title.length > 20 ? element.title.slice(0,13) + "..." : element.title}</p>
+            <p class="year">   ${element.release_date.slice(0, 4)}</p>
+              </button>
+               <div class="card-header">
+                   <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/${
+                     element.poster_path
+                   }" alt="...">
+             </div>
+         </div>
+             </div>`
+      );
+
+    }
+
+  });
+}
+
+function endpointDataLink(endpoint, pageSize = null, searchParam = null) {
   getMovies(endpoint, pageSize, searchParam).then((response) => {
     if (response.results.length <= 0) {
       loadBtn.style.display = "none"
@@ -214,7 +259,7 @@ function endpointData(endpoint, pageSize = null, searchParam = null) {
         const element = response.results[key];
         MOVIE_CONTAINER.insertAdjacentHTML(
           "beforeend",
-          `<div class="col col-md-4 col-sm-6 col-xl-2 portrait">
+          `<div class="col col-md-4 col-sm-4 col-xl-3 portrait">
                  <div class="card ${colorStateValue == 0 ? "bg-light" : "bg-dark"}"  style="padding:0">
                   <button onclick="showMovieDescription(this)"  data-image="${element.poster_path}"
                   data-title="${element.title}"  data-overview="${element.overview}" data-date="${element.release_date}"
@@ -223,7 +268,7 @@ function endpointData(endpoint, pageSize = null, searchParam = null) {
                   <span class="rating">  ${element.vote_average} <i class="fas fa-star"></i></span>
                  
                   <p class="card-title">${element.title.length > 20 ? element.title.slice(0,13) + "..." : element.title}</p>
-                    <p class="categories">   ${element.release_date.slice(0, 4)}</p>
+                    <p class="year">   ${element.release_date.slice(0, 4)}</p>
                       </button>
                        <div class="card-header">
                            <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/${
@@ -238,11 +283,11 @@ function endpointData(endpoint, pageSize = null, searchParam = null) {
   });
 }
 
-function getMovies(endpoint, parPageSize, searchParam) {
+function getMovies(endpoint, parPageSize, searchParam = null) {
   parPageSize = pageSize
   return new Promise((resolve, reject) => {
     fetch(
-        BASE_URL + endpoint + "/" + "?api_key=" + API_KEY + "&query=" + searchParam + "&page=" + parPageSize
+        BASE_URL + endpoint + "?api_key=" + API_KEY + "&page=" + parPageSize + "&query=" + searchParam
       )
       .then((response) => {
         return response.json();
@@ -256,4 +301,5 @@ function getMovies(endpoint, parPageSize, searchParam) {
   });
 }
 
-endpointData("movie/top_rated/");
+endpointDataLink("movie/top_rated");
+upcomingData("movie/upcoming", 1);

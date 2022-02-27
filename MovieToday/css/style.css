@@ -13,6 +13,11 @@ main{
     margin-top:70px;
 }
 
+aside{
+    width: 40%;
+    float: right;
+}
+
 .portrait {
     float: left;
     padding: 10px;
@@ -21,7 +26,13 @@ main{
 .card {
     height: auto;
     border-radius: 0px;
+    
 }
+#up-text{
+    padding-top: 8px;
+}
+
+
 .card .card-info{
     background-color:  black;
     width:100%;
@@ -40,11 +51,11 @@ main{
 }
 
 
-.card-title,  .categories, .rating {
+.card-title,  .year, .rating {
     color:white;
 }
 
- .card-title,  .categories {
+ .card-title,  .year {
     text-align: center;
     position: relative;
     bottom: -30%;

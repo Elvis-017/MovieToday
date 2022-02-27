@@ -31,9 +31,9 @@
           <a class="nav-link " aria-current="page" data-val="top_rated" href="#">Top Rated</a>
         </li>
 
-        <li class="nav-item ">
-          <a class="nav-link" aria-current="page" data-val="upcoming" href="#">Upcoming</a>
-        </li>
+        <!-- <li class="nav-item ">
+          <a class="nav-link" aria-current="page" data-val="upcoming" href="#">now-playing</a>
+        </li> -->
 
       </ul>
       <button onclick="changeTheme(this)" id="btn-change-theme" class="btn nav-item">
@@ -42,20 +42,36 @@
       <form id="form" class="form-inline ml-2 d-flex justify-content-center">
         <div class="form-control mr-sm-2 search-container">
           <input id="search-value" id="btn-search" class="search-input" type="text" placeholder="Search"
-          aria-label="Search">
+            aria-label="Search">
 
           <button class="btn" type="submit"><i class="fas fa-search"></i></button>
         </div>
-      
-       
+
+
       </form>
     </div>
   </nav>
 
-  <main>
+  <!-- mx-auto float-right -->
+  <aside class="col col-md-4">
+    <div class="card">
+      <div class="card-header text-center header-change">
+        <h4 id="up-text">Upcoming</h4>
+      </div>
+      <div class="card-body">
+        <div id="upcoming-movie-list">
+
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="col col-md-8">
     <div id="movie-list" class="container">
 
     </div>
+
     <!--load-button-->
     <button id="load-btn" class="btn btn-secondary load-btn"><i class="fas fa-arrow-down"></i> Load more</button>
     <!--modal-->
