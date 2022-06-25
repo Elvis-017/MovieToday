@@ -36,7 +36,7 @@
         </li> -->
 
       </ul>
-      <button onclick="changeTheme(this)" id="btn-change-theme" class="btn nav-item">
+      <button title="change theme" onclick="changeTheme(this)" id="btn-change-theme" class="btn nav-item">
         <i class="fas fa-moon"></i>
       </button>
       <form id="form" class="form-inline ml-2 d-flex justify-content-center">
@@ -44,10 +44,8 @@
           <input id="search-value" id="btn-search" class="search-input" type="text" placeholder="Search"
             aria-label="Search">
 
-          <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+          <button title="search" class="btn" type="submit"><i class="fas fa-search"></i></button>
         </div>
-
-
       </form>
     </div>
   </nav>
@@ -60,12 +58,13 @@
       </div>
       <div class="card-body">
         <div id="upcoming-movie-list">
-
+         
         </div>
       </div>
     </div>
 
   </aside>
+
 
   <main class="col col-md-8">
     <div id="movie-list" class="container">
@@ -100,6 +99,27 @@
       </div>
     </div>
   </main>
+
+  
+  
+  <template id="template-card">
+    <div class="col portrait">
+      <div class="card "  style=" padding:0">
+        <button onclick="showMovieDescription(this)" data-image="" data-title="" data-overview="" data-date=""
+          class="card-info" data-toggle="modal" data-target="#exampleModal">
+
+          <span class="rating"> <i class="fas fa-star"></i></span>
+
+          <p class="card-title"></p>
+          <p class="year"></p>
+        </button>
+        <div class="card-header">
+          <img class="card-img-top" src="" alt="..."/>
+
+        </div>
+      </div>
+    </div>
+  </template>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

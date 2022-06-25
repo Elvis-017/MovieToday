@@ -70,8 +70,6 @@ aside{
 }
 
 .card .card-header .card-img-top {
-
-    object-fit: cover;
     height: 250px;
 }
 
