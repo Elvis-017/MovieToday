@@ -15,7 +15,8 @@ const BASE_URL = "https://api.themoviedb.org/3/",
   MOVIE_DESCRIPTION = document.getElementById("modal-description"),
   UP_TEXT = document.getElementById("up-text"),
   TEMPLATE_CARD = document.getElementById("template-card"),
-  TEMPLATE_CARD2 = document.getElementById("template-card2");
+  TEMPLATE_CARD2 = document.getElementById("template-card2"),
+  LEFT_CONTAINER = document.getElementById('left-container')
 
 let navlink = document.getElementsByClassName("nav-link"),
   cards = document.getElementsByClassName("card"),
@@ -28,7 +29,7 @@ let navlink = document.getElementsByClassName("nav-link"),
 FORM.addEventListener("submit", sendData);
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth < 600) {
+  if (window.innerWidth <= 1024) {
     MODAL_INFO.classList.add('d-block')
     MODAL_INFO.classList.remove('d-flex')
 
@@ -36,6 +37,7 @@ window.addEventListener('resize', () => {
 
     MOVIE_DESCRIPTION.classList.add('text-center')
     MOVIE_DESCRIPTION.classList.remove('text-justify')
+    LEFT_CONTAINER.classList.remove('left-container')
 
   } else {
 
@@ -47,6 +49,8 @@ window.addEventListener('resize', () => {
     MOVIE_DESCRIPTION.classList.remove('text-center')
     MOVIE_DESCRIPTION.classList.add('text-justify')
 
+    MOVIE_DESCRIPTION.classList.remove('text-justify')
+    LEFT_CONTAINER.classList.add('left-container')
   }
 
 })
@@ -232,7 +236,7 @@ function clonnerTemplate(objectData, colClasses, cardClassValue, container) {
 function upcomingData(endpoint, pageSize = null) {
   getMovies(endpoint, pageSize).then((response) => {
     for (key in response.results) {
-      if (key == 6) break;
+      if (key == 4) break;
       const element = response.results[key];
       clonnerTemplate({
           title: element.title,

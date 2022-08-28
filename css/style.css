@@ -9,64 +9,68 @@
 }
 
 
-main{
-    margin-top:70px;
+main {
+    margin-top: 70px;
 }
 
-aside{
+aside {
     width: 40%;
     float: right;
 }
 
 .portrait {
     float: left;
-    padding: 10px;
+    margin: 5px 0px
 }
 
 .card {
     height: auto;
     border-radius: 0px;
-    
+
 }
-#up-text{
+
+#up-text {
     padding-top: 8px;
 }
 
 
-.card .card-info{
-    background-color:  black;
-    width:100%;
-    height:100%;
-    position:absolute;
-    border:0;
-    opacity:0;
+.card .card-info {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 0;
+    opacity: 0;
 }
 
 .rating {
     background-color: #4a4545;
     padding: 5px;
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
 }
 
 
-.card-title,  .year, .rating {
-    color:white;
+.card-title,
+.year,
+.rating {
+    color: white;
 }
 
- .card-title,  .year {
+.card-title,
+.year {
     text-align: center;
     position: relative;
     bottom: -30%;
 }
 
-#brandColor{
+#brandColor {
     font-family: 'Black Ops One', cursive;
 }
 
-.card .card-info:hover{
-    opacity:0.8;
+.card .card-info:hover {
+    opacity: 0.8;
 }
 
 .card .card-header .card-img-top {
@@ -80,20 +84,21 @@ aside{
 
         height: auto;
     }
-    
+
 }
 
 
 @media only screen and (max-width:550px) {
-    #btn-change-theme{
+    #btn-change-theme {
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
+
     .card .card-header .card-img-top {
         height: auto;
     }
-    
+
 }
 
 
@@ -104,11 +109,11 @@ aside{
 
         height: auto;
     }
-    
+
 }
 
 @media only screen and (max-width:990px) {
-    #btn-change-theme{
+    #btn-change-theme {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -125,16 +130,16 @@ aside{
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
-  
+
 }
 
-.load-btn{
+.load-btn {
     clear: both;
     display: block;
     margin-left: auto;
@@ -144,24 +149,33 @@ a:hover{
 }
 
 
-.search-container{
+.search-container {
     padding: 7px;
     padding-bottom: 32px;
     margin-top: 5px;
 }
 
-.search-container .search-input{
+.search-container .search-input {
     width: 85%;
     border: 0;
     margin-bottom: 5px;
 }
 
-.search-container .search-input:focus{
+.search-container .search-input:focus {
     outline-width: 0;
     box-shadow: none;
 }
 
-.search-container .btn{
+.search-container .btn {
     padding: 0px;
     width: calc(15% - 0.375rem);
+}
+
+
+/*left-container**/
+.left-container {
+    position: fixed;
+    right: 0;
+    top: 5%;
+    transform: scale(0.8);
 }
