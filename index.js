@@ -113,20 +113,17 @@ function changeTheme(event) {
   }
 }
 
-loadBtn.addEventListener('click', function () {
+loadBtn.addEventListener('click', ()=> {
 
   if (pageSize < 5) {
     pageSize += 1
     chargeContent()
-  } else
-    alert("the limit has been reached")
-
+  } else  alert("the limit has been reached")
 })
 
 function addLoader() {
   MOVIE_CONTAINER.className = "container d-flex justify-content-center";
-  MOVIE_CONTAINER.innerHTML = `<div class="spinner-border d-flex" role="status">
-    </div>`;
+  MOVIE_CONTAINER.innerHTML = `<div class="spinner-border d-flex" role="status"></div>`;
   loadBtn.style.display = "none"
 }
 
@@ -144,9 +141,7 @@ function sendData(event) {
 function chargeContent() {
   MOVIE_CONTAINER.className = "container";
   loadBtn.style.display = "block"
-  if (pageSize == 1) {
-    MOVIE_CONTAINER.innerHTML = "";
-  }
+  if (pageSize == 1)  MOVIE_CONTAINER.innerHTML = "";
 
   switch (val) {
     case 1:
