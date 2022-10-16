@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     transition: .5s;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Courgette', cursive;
 }
 
 
@@ -65,8 +65,16 @@ aside {
     bottom: -30%;
 }
 
+
+@font-face {
+    font-family: 'Dimitri';
+    src: url('../fonts/dimitri.ttf');
+}
+
 #brandColor {
-    font-family: 'Black Ops One', cursive;
+    font-family: 'Dimitri';
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .card .card-info:hover {
